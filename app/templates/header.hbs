@@ -1,0 +1,73 @@
+<script>
+    //To place an active class for any menu item clicked
+    $('#menu > ul.nav li a').click(function(e) {
+        var $this = $(this);
+        $this.parent().siblings().removeClass('active').end().addClass('active');
+        e.preventDefault();
+    });
+</script>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="height:70px">
+    <div class="container-fluid">
+        <!-- Logo and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">
+              <img src="assets/image/logo.jpg" width="50px" height="50px">
+         </span>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav"> 
+       <li class="dropdown "><a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">Home <b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li class="dropdown" role="presentation"><a href="#" role="menuitem"{{action 'toggleModal'}}>Sign In</a></li>
+               <!-- <li role="presentation">{{#link-to 'dashboard1'}}<a href="#" role="menuitem">Dashboard 1</a>{{/link-to}}</li>
+                <li role="presentation"><a href="#" role="menuitem">Customers</a></li>
+                <li role="presentation">{{#link-to 'dashboard2'}}<a href="#" role="menuitem">Dashboard 2</a>{{/link-to}}</li>-->
+            </ul>
+        </li>
+        <li class="dropdown "><a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">Claims <b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                <li class="dropdown" role="presentation"><a href="#" role="menuitem">Health</a></li>
+                <li class="dropdown" role="presentation"><a href="#" role="menuitem">General</a></li>
+               <li class="dropdown" role="presentation"><a href="#" role="menuitem">Auto</a></li>
+               <!-- <li role="presentation">{{#link-to 'dashboard1'}}<a href="#" role="menuitem">Dashboard 1</a>{{/link-to}}</li>
+                <li role="presentation"><a href="#" role="menuitem">Customers</a></li>
+                <li role="presentation">{{#link-to 'dashboard2'}}<a href="#" role="menuitem">Dashboard 2</a>{{/link-to}}</li>-->
+            </ul>
+        </li>
+        
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+                {{#if showUser}}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user">&nbsp;{{usertype}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            
+                              <!--  <li class="mouse"><a {{action 'toggleModal'}}>Login</a></li>      
+                                      -->
+                                   <!-- <li class="mouse"><b><a>&nbsp; &nbsp;{{usertype}}</a></b></li>  -->
+                                       <li role="separator" class="divider"></li> 
+                                  <li class="mouse"><a {{action 'logout'}}>Logout</a></li>
+                                      
+                                    
+                        </ul>
+                    </li>
+
+                 {{/if}} 
+            </ul>
+            
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

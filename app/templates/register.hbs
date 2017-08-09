@@ -1,0 +1,187 @@
+<br/>
+<br/>
+<br/>
+{{#if isShowregisterbutton}}
+<div class="container">
+    <div class="row centered-form">
+        <hr class="prettyline">
+        <center>
+            <h1><b style="color:blue">Welcome!</b></h1>
+            <h4 style="color:blue">You need to sign in or register for  service</h4>
+            <br/>
+            <br/>
+            <div class="btn-group-vertical">
+              
+               <div  {{action 'registerinsurer'}} >
+                   <img  src="assets/image/a2.png" width="100" height="100" style="background:white"/>
+                   <div class="row">    
+                  <button type="button" class="btn btn-success btn-md">Insured</button>
+                   </div>
+               </div> 
+                  
+            &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; <p style="font-size:25px">OR</p>
+                
+                <div  {{action 'registerpublicadjuster'}}>
+                   <img  src="assets/image/pbadj.jpg" width="100" height="100"/>
+                  <div class="row">
+                <button type="button" class="btn btn-success btn-md">Public Adjuster</button>
+                  </div>
+               </div>
+                
+            </div>
+        </center>
+        <br/>
+        <hr class="prettyline">
+    </div>
+</div>
+{{/if}}
+{{#if isInsurerAuthorize}}
+<br/>
+<div class="container" style="font-size:16px">
+    <div class="row main">
+        <div class="panel panel-primary">
+<div class="panel-heading"> Insurer Personal Details </div>
+        
+       
+        <div class="main-login main-center">
+            <form class="form-horizontal" method="post" action="#">
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">First name :</label>  
+                <div class="col-md-4">
+                     {{validated-input type="text" model=this valuePath='fname' placeholder="Enter your first name" }}
+                </div>
+                </div>
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">Last name :</label>  
+                <div class="col-md-4">
+                     {{validated-input type="text" model=this valuePath='lname' placeholder="Enter your last name" }}
+                </div>
+                </div>
+                
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn"> Email Id :</label>  
+                <div class="col-md-4">
+                     {{validated-input type="email" model=this valuePath='email' placeholder="Enter your Email" }}
+                </div>
+                </div>
+
+                 <div class="form-group">
+                <label class="col-md-4 control-label" for="fn"> Phone Number</label>  
+                <div class="col-md-4">
+                     {{validated-input type="text" model=this valuePath='phoneno' placeholder="Enter your  Phone Number" }}
+                </div>
+                </div>
+                
+               <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">Password :</label>  
+                <div class="col-md-4">
+                     {{validated-input type="password" model=this valuePath='password' placeholder="Enter your Password" }}
+                </div>
+                </div>
+                
+             <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">Confirm Password :</label>  
+                <div class="col-md-4">
+                     {{validated-input type="password" model=this valuePath='confirmpasswords' placeholder="Please Confirm password" }}
+                </div>
+                </div>
+               <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" class="btn btn-primary"{{action 'insurerRegister'}}>SUBMIT</button>
+                    </div>
+                         {{#if isShowingModal}}
+                        {{#modal-dialog close="toggleModal" targetAttachment="center" translucentOverlay=true}}
+                             <h1>Registration Is Done Suceessfully....!!!!!</h1>
+                              <h3 style="color:blue">Please Login with Your Registered Email Id</h3>
+                              <div class="modal-header">
+                                    <button type="button" class="close" {{action "homeok"}}>ok</button>
+                              </div>
+                        {{/modal-dialog}}
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{#if isPublicAdjusterAuthorize}}
+<br/>
+<div class="container" style="font-size:16px">
+    <div class="row main">
+        <div class="panel panel-primary" id="panelid">
+<div class="panel-heading">Public Adjuster Details </div>
+        
+       
+        <div class="main-login main-center">
+            <form class="form-horizontal" method="post" action="#">
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">First name</label>  
+                <div class="col-md-4">
+                     {{validated-input type="text" model=this valuePath='fname' placeholder="Enter your First name" }}
+                </div>
+                </div>
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">Last name</label>  
+                <div class="col-md-4">
+                     {{validated-input type="text" model=this valuePath='lname' placeholder="Enter your last name" }}
+                </div>
+                </div>
+                
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn"> Email Id</label>  
+                <div class="col-md-4">
+                     {{validated-input type="email" model=this valuePath='email' placeholder="Enter your last name" }}
+                </div>
+                </div>
+
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn"> Phone Number</label>  
+                <div class="col-md-4">
+                     {{validated-input type="text" model=this valuePath='phoneno' placeholder="Enter your  Phone Number" }}
+                </div>
+                </div>
+
+                <div class="form-group">
+                <label class="col-md-4 control-label" for="fn"> Licence Number</label>  
+                <div class="col-md-4">
+                     {{validated-input type="text" model=this valuePath='licenceno' placeholder="Enter your  Licence Number" }}
+                </div>
+                </div>
+                
+               <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">Password</label>  
+                <div class="col-md-4">
+                     {{validated-input type="password" model=this valuePath='password' placeholder="Enter your Password" }}
+                </div>
+                </div>
+                
+               <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">Confirm Password</label>  
+                <div class="col-md-4">
+                     {{validated-input type="password" model=this valuePath='confirmpasswords' placeholder="Please Confirm Password" }}
+                </div>
+                </div>
+               <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" class="btn btn-primary" {{action 'publicadjusterRegister'}}>SUBMIT</button>
+                    </div>
+                         {{#if isShowingModal}}
+                        {{#modal-dialog close="toggleModal" targetAttachment="center" translucentOverlay=true}}
+                              <h1>Registration Is Done Suceessfully....!!!!!</h1>
+                              <h3 style="color:blue">Please Login with Your Registered Email Id</h3>
+                              <div class="modal-header">
+                                    <button type="button" class="close" {{action "homeok"}}>ok</button>
+                              </div>
+                        {{/modal-dialog}}
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{{/if}}

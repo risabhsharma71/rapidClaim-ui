@@ -1,0 +1,266 @@
+<br/>
+<br/>
+{{partial 'steps'}}
+<br>
+<div class="middle-container">
+    <div class="notification-container">
+    <h2 class="notification-title"> <b>Notifications</b></h2>
+       
+        <div class="notification-heading">
+    </div>
+    </div>
+    <br>
+    <br>
+    
+    <div class ="claim-middle-container" style="width: 50%; float:left">
+        <div class="panel panel-primary">
+      <div class="panel-heading"> New Claim Form</div>
+   <!-- <div class="row">
+        <div class="col-sm-6">
+            <div {{action 'insurerform'}}><input type="image" src="assets/image/image6.png" alt="Submit" width="90" height="90">Insurer</div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+           <div {{action 'insurerform'}}><input type="image" src="assets/image/images5.png" alt="Submit" width="90" height="90">Public adjuster</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+             <div {{action 'insurerform'}}><input type="image" src="assets/image/image8.jpg" alt="Submit" width="90" height="90">Examiner</div>
+        </div>
+        <br>
+        <div class="col-sm-6">
+            <div {{action 'insurerform'}}><input type="image" src="assets/image/image9.png" alt="Submit" width="90" height="90">Claim Adjuster</div>
+        </div>
+    </div>-->
+ 
+    
+ <div class="scroll">
+  <form role="form">
+
+    <label class="col-sm-12" style="color:red"><b>Insurer Details :</b></label>
+    <div class="form-group col-sm-12" style="width:500px;border: solid;margin-left:20px;margin-right:40px">       
+        <div class="form-group  col-sm-12">
+            <label for="exampleInputEmail1">Title :</label>
+        {{validated-input type="text" model=this valuePath='title' placeholder="Enter Title" }}
+        </div>
+        <div class="form-group col-sm-12">
+          <label for="exampleInputEmail1">Damage Details :</label>
+        {{textarea class="form-control" rows="4" maxlength="500" value=damagecontent valuePath="damagedetails" placeholder="Enter damage details decription" errormessage1=errormessage4}}
+        </div>
+        <div class="form-group col-sm-12">
+            <div class="col-sm-6">
+            <button type="submit" class="btn agree-btn-default" {{action 'notifyclaim'}} >Notify Claim</button>
+            </div>
+            <div class="col-sm-6">
+            <button type="submit" class="btn agree-btn-default" disabled={{v-get this 'isInvalid' id="SignInbutton"}}>Create Claim</button>
+            </div>
+        </div>
+    </div>  
+    <div class="form-group col-sm-12" style="width:500px;border: solid;margin-left:20px;margin-right:40px">       
+        <div class="form-group col-sm-12">
+            <label for="exampleInputPassword1">Total Damage Value</label>
+             {{!--{{validated-input type="text" model=this valuePath='totaldamagevalue' placeholder="Enter your first name" disabled=isInvalid}}--}}
+            <br/> <input type="text" model=this valuePath='totaldamagevalue' placeholder="Enter your first name" size="50" disabled>
+        </div>
+         <div class="form-group col-sm-12">
+            <label for="exampleInputPassword1">Total Claim :</label>
+            {{!-- {{validated-input type="text" model=this valuePath='totalclaim' placeholder="Enter your first name" }}--}}
+            <br/> <input type="text" model=this valuePath='totaldamagevalue' placeholder="Enter your first name" size="50" disabled>
+        </div>
+    </div>
+
+    <label class="col-sm-12" style="color:red">Examinar Details :</label>
+        <div class="form-group col-sm-12" style="width:500px;border: solid;margin-left:20px;margin-right:40px">
+        <div class="form-group  col-sm-12">
+            <label for="exampleInputPassword1">Assessed Damage Value :</label>
+             {{validated-input type="text" model=this valuePath='assesseddamagevalue' placeholder="Enter your first name" }}
+        </div>
+         <div class="form-group  col-sm-12">
+            <label for="exampleInputPassword1">Assessed Claim Value :</label>
+             {{validated-input type="text" model=this valuePath='assessedclaimvalue' placeholder="Enter your first name" }}
+        </div>
+        <!-- <div class="form-group col-sm-12">
+            <label for="exampleInputPassword1">Payout Calculated :</label>
+             {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+        </div>-->
+        </div>   
+         <label class="col-sm-12" style="color:red">Negotiation Part :</label>
+        <div class="form-group col-sm-12" style="width:500px;border: solid;margin-left:20px;margin-right:40px">
+           
+            <div class="form-group col-sm-12">
+                <label for="exampleInputPassword1">Negotiated 1:</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="exampleInputPassword1">Basis :</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div> 
+             <div class="form-group col-sm-12">
+                <label for="exampleInputPassword1">Negotiated 2:</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="exampleInputPassword1">Basis :</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div> 
+            <br/>
+            <div class="form-group col-sm-3"></div>
+              <div class="form-group col-sm-3">
+                 <button type="submit" class="btn agree-btn-default">Agree</button>
+            </div>
+            <div class="form-group col-sm-3">
+                 <button type="submit" class="btn negotiation-btn-default ">Negotiation</button>
+            </div>
+            <div class="form-group col-sm-3"></div>
+    </div>
+             
+            <div class="form-group col-sm-12">
+                <label for="exampleInputPassword1">Approved Claim :</label>
+              {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your approved claim" }}
+            </div> 
+
+        <div class="clearfix"></div>
+        <div class="col-sm-12" style="align:center">
+            <button type="submit" class="btn btn-default" style="background-color:blue">Submit</button>
+        </div>
+    </form>
+ </div>
+ </div>
+</div>
+
+
+<div style="width: 50%; float:right ">
+    <div style="margin-left:5px; margin-right:5px">
+        <table align="center">
+  <tr>
+    <th>Sr No</th>
+    <th>Type</th>
+    <th>Attachment</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>FIR</td>
+    <td>{{input type="file" accept=".pdf/*"}}</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>PHOTO</td>
+    <td>{{input type="file" accept=".jpg/.png"}}</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Cerificates</td>
+    <td>{{input type="file" accept=".pdf/*"}}</td>
+  </tr>
+  
+</table>
+    </div>
+</div>
+</div>
+<br>
+<div class="end-container" width="100px">
+    <div class="row">
+<b class="bold-end-container">Settlement Time </b>&nbsp; &nbsp;
+ <div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      50%
+    </div><span>Average: 5 Days</span> &nbsp; &nbsp;  Longest: 9 Days 
+    </div>
+   
+<div class="row">
+<p><b>Payout </b>&nbsp; &nbsp; &nbsp;<span>Average: 72%</span> &nbsp; &nbsp;  Lowest: 54%  </p>
+</div> 
+
+</div>
+</div>
+
+{{#if isShowingModal}}
+
+{{#modal-dialog close="toggleModal"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+         <div class="panel panel-primary" id="panelid">
+            <div class="panel-heading"> Claim form </div> 
+        <div class="popup-container">
+           <div class="row">
+	            <form role="form">
+                
+        <div class="form-group  col-sm-6">
+            <label for="exampleInputEmail1">Title :</label>
+        {{validated-input type="text" model=this valuePath='title' placeholder="Enter your first name" }}
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="exampleInputEmail1">Damage Details :</label>
+             {{textarea class="form-control" rows="4" maxlength="500" value=damagecontent valuePath="damagedetails" placeholder="(Campaign Story) Should not be allowed more than 500 char" errormessage1=errormessage4}}
+        </div>
+        
+        <div class="form-group col-sm-6">
+            <label for="exampleInputPassword1">Total Damage Value</label>
+             {{validated-input type="text" model=this valuePath='totaldamagevalue' placeholder="Enter your first name" }}
+        </div>
+         <div class="form-group col-sm-6">
+            <label for="exampleInputPassword1">Total Claim :</label>
+             {{validated-input type="text" model=this valuePath='totalclaim' placeholder="Enter your first name" }}
+        </div>
+        <div class="form-group  col-sm-6">
+            <label for="exampleInputPassword1">Assessed Damage Value :</label>
+             {{validated-input type="text" model=this valuePath='assesseddamagevalue' placeholder="Enter your first name" }}
+        </div>
+         <div class="form-group  col-sm-6">
+            <label for="exampleInputPassword1">Assessed Claim Value :</label>
+             {{validated-input type="text" model=this valuePath='assessedclaimvalue' placeholder="Enter your first name" }}
+        </div>
+         <div class="form-group col-sm-6">
+            <label for="exampleInputPassword1">Payout Calculated :</label>
+             {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+        </div>
+        
+         <label class="col-sm-12">Negotiation Part :</label>
+        <div class="form-group col-sm-12" style="width:600px;border: solid;margin-left:20px;margin-right:40px">
+           
+            <div class="form-group col-sm-6">
+                <label for="exampleInputPassword1">Negotiated 1:</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="exampleInputPassword1">Basis :</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div> 
+             <div class="form-group col-sm-6">
+                <label for="exampleInputPassword1">Negotiated 2:</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="exampleInputPassword1">Basis :</label>
+                {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your first name" }}
+            </div> 
+            <br/>
+            <div class="form-group col-sm-3"></div>
+              <div class="form-group col-sm-3">
+                 <button type="submit" class="btn agree-btn-default">Agree</button>
+            </div>
+            <div class="form-group col-sm-3">
+                 <button type="submit" class="btn negotiation-btn-default ">Negotiation</button>
+            </div>
+            <div class="form-group col-sm-3"></div>
+    </div>
+             
+            <div class="form-group col-sm-12">
+                <label for="exampleInputPassword1">Approved Claim :</label>
+              {{validated-input type="text" model=this valuePath='payoutcalculated' placeholder="Enter your approved claim" }}
+            </div> 
+
+        <div class="clearfix"></div>
+        <div class="col-sm-12" style="align:center">
+            <button type="submit" class="btn btn-default" style="background-color:blue">Submit</button>
+        </div>
+    </form>
+    <div class="clearfix"></div>
+
+    <br /><br />
+	</div>
+</div>       
+        </div>
+{{/modal-dialog}}
+{{/if}}

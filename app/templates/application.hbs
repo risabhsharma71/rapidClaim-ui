@@ -1,0 +1,154 @@
+{{partial 'header'}}
+{{!--{{showUser}}--}}
+
+{{outlet}}
+
+{{partial 'footer'}}
+
+{{#if isShowingModal}}
+{{!--{{isShowingModal}}--}}
+{{#modal-dialog close="toggleModal"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+                  
+{{#if isshowalways}}
+<!--<a class="boxclose"></a>-->
+<div class="login-container">
+     
+ <div class="login-heading"><h2 style="text-align: center">Welcome..!!! Login Here</h2></div>
+   
+    <div style="text-align: center">
+    <br/>
+    <br/>
+    <button type="button" class="btn btn-success btn-lg"{{action 'iminsurer'}}>Insured</button>
+    <br/>
+    <br/>
+    OR
+    <br/>
+    <br/>
+    <button type="button" class="btn btn-success btn-lg"{{action 'imothers'}}>Others</button>
+    </div>   
+</div>
+{{/if}}
+{{#if iminsurer}}
+<div class="login-container">
+   <div class="login-heading"><h2 style="text-align: center">Welcome..!!! Login Here</h2></div>
+
+                    <form role="form">
+                        <fieldset>
+                            
+                             <div  class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                    {{validated-input  type="text"  model=this  valuePath='policyno' placeholder="policy number" }}
+                            </div> 
+                            <br/>      
+                             <div  class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        {{validated-input  type="text" model=this  valuePath='email'  placeholder="username or email"}}                                        
+                                    </div>
+                                    <br/>
+                            <div  class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        {{validated-input  type="password"  model=this  valuePath='password' placeholder="password"}}
+                                    </div>
+                           <br/>
+                           <div style="text-align:center">
+                              <button type="button" class="btn btn-primary btn-md " {{action "login" "insurer"}}>Login</button>
+                           </div>
+                            <p style="color:red;font-size:1pc">New Member? {{#link-to 'register'}}Sign up{{/link-to}}</p>
+                            
+                        </fieldset>
+                    </form>
+</div>                
+                
+{{/if}}
+{{#if isothers}}
+<div class="login-container">
+    <div class="login-heading"><h2 style="text-align: center">Welcome..!!! Login Here</h2></div>
+        <form role="form">
+            <fieldset>  
+            <br/>      
+                 <div  class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        {{validated-input  type="text" model=this  valuePath='email'  placeholder="username or email"}}                                        
+                </div>
+             <br/>
+                <div  class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    {{validated-input  type="password"  model=this  valuePath='password' placeholder="password"}}
+                </div>
+            <br/>
+              <div style="text-align:center">
+              <button type="button" class="btn btn-primary btn-md " {{action "login" "examiner" "publicadjuster" "claimadjuster"}}>Login</button>
+              </div>
+        <p style="color:red;font-size:1pc">New Member? {{#link-to 'register'}}Sign up{{/link-to}}</p>
+                            
+            </fieldset>
+        </form>
+</div>                
+
+{{/if}}
+{{#if insurerloginactiondone}}
+<div class="login-container">
+  {{!--<h1>{{loginaction}}</h1>--}}
+  <div class="row">
+      <p style="font-size:20px">Logged in succesfully</p>
+      <div style="text-align:center;margin-top:30px" {{action "gotoinsurer"}}> 
+    <img src="assets/image/load2.gif" alt="Login done" width="150" height="150">
+    {{!--<div class="row">
+   <button type="button" class="btn btn-primary btn-md " >Continue</button>
+   </div>--}}
+</div> 
+  </div>
+</div>  
+{{/if}}
+
+{{#if examinerloginactiondone}}
+<div class="login-container">
+  {{!--<h1>{{loginaction}}</h1>--}}
+  <div class="row" style="text-align:center;margin-top:30px">
+     <p style="font-size:20px">Logged in succesfully</p>
+      <div style="text-align:center;margin-top:30px" {{action "gotoexaminer"}}>
+    <img src="assets/image/load2.gif" alt="Login done" width="150" height="150">
+  {{!--<div class="row">
+   <button type="button" class="btn btn-primary btn-md ">Continue</button>
+   </div>--}}
+</div>   
+</div>
+</div>
+{{/if}}
+{{#if claimadjusterloginactiondone}}
+<div class="login-container">
+  {{!--<h1>{{loginaction}}</h1>--}}
+  <div class="row">
+      <p style="font-size:20px">Logged in succesfully</p>
+      <div style="text-align:center;margin-top:30px" {{action "gotoclaimadjuster"}}> 
+    <img src="assets/image/load2.gif" alt="Login done" width="150" height="150">
+  {{!--<div class="row">
+   <button type="button" class="btn btn-primary btn-md ">Continue</button>
+   </div>--}}
+</div>   
+</div> 
+  </div>
+
+{{/if}}
+{{#if publicadjusterloginactiondone}}
+<div class="login-container">
+  {{!--<h1>{{loginaction}}</h1>--}}
+  <div class="row">
+      <p style="font-size:20px">Logged in succesfully</p>
+       <div style="text-align:center;margin-top:30px" {{action "gotopublicdjuster"}}> 
+    <img src="assets/image/load2.gif" alt="Login done" width="150" height="150">
+    {{!--<div class="row">
+   <button type="button" class="btn btn-primary btn-md ">Continue</button>
+   </div>--}}
+</div>   
+</div> 
+  
+</div>
+{{/if}}
+
+  {{/modal-dialog}}
+
+{{/if}}
+

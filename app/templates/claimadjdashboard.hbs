@@ -1,0 +1,99 @@
+<br/>
+<br/>
+<div class="row"></div>
+<div class="stepwizard">
+   
+    <div class="stepwizard-row">
+        <br/>
+        <br/>
+      
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-success one-dash-btn-circle" disabled="disabled">{{Notifiedstatuscount}}</button>
+            <p>Notified</p>
+           
+        </div>
+      
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary two-dash-btn-circle">{{Submittedstatuscount}}</button>
+            <p>Submitted</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-success one-dash-btn-circle" disabled="disabled">{{examinedstatuscount}}</button>
+            <p>Examined</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary two-dash-btn-circle">{{Validatedstatuscount}}</button>
+            <p>Validated</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-success one-dash-btn-circle" disabled="disabled">{{Rejectedstatuscount}}</button>
+            <p>Rejected</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary two-dash-btn-circle">{{submitstatuscount}}</button>
+            <p>Resubmitted</p>
+        </div>
+         <div class="stepwizard-step">
+            <button type="button" class="btn btn-success one-dash-btn-circle" disabled="disabled">{{approvedstatuscount}}</button>
+            <p>Approved</p>
+        </div>
+            <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary two-dash-btn-circle">{{Settledstatuscount}}</button>
+            <p>Settled</p>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<!--dashboard -->
+<div class="dash1-middle-container">
+    <div class="notification-container">
+    <h2 class="notification-title"> <b>Notifications</b></h2>
+       
+        <div class="notification-heading">
+    </div>
+    </div>
+    <br>
+    
+        <div class="scroll-dash1">
+       <div class="row">
+          
+         <div class="col-sm-12" style="text-align:center">
+          <ul style="list-style-type:none">
+            {{#each totalnoList as |item|}}
+            <div id="rectangle"{{action 'claimaction' item.claimno   item.status item.title  item.damagedetails  item.totaldamagevalue item.totalclaimvalue item.remark item.assesseddamagevalue item.assessedclaimvalue  item.negotiationlist  item.claimnotifieddate item.claimsubmitteddate item.claimexamineddate item.claimvalidateddate item.claimapproveddate item.claimsettleddate item.approvedclaim}}>
+                <p><li><font color="white"><span style="text-align:left"><b>Claim No.</b> : {{item.claimno}}</span></font> &nbsp; &nbsp; &nbsp; </li>
+                <li><font color="white"> <span style="text-align:left"> <b>  Title </b>: {{item.title}} </span></font >&nbsp; &nbsp; &nbsp; </li>
+                <li><font color="red"> <span style="text-align:left">  <b> Status </b>: {{item.status}} </span></font ></li>
+                </p>
+           </div>    
+            {{/each}}   
+           </ul>
+        </div>
+        </div> 
+    </div>
+</div>
+
+<br/>
+<div class="dash1-end-container" >
+       <div class="row">
+<p style="text-align:left"><b>Settlement Time </b>  </p>
+    </div>
+  <div class="row">
+      <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" style="width:22%">
+     Average:{{Average}} days
+    </div>
+    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:45%">
+    Longest:{{Longest}} Days
+    </div>
+    <div class="progress-bar progress-bar-danger" role="progressbar" style="width:15%">
+     Shortest:{{Shortest}} Days
+    </div>
+  </div>
+ 
+  </div>  
+
+
+</div>

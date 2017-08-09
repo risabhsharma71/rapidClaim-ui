@@ -1,0 +1,6 @@
+<select {{action 'change' on='change' }}>
+    <option default>--Select your User Type--</option>
+    {{#each listitem as |item|}}
+    <option value={{item}} selected={{selecteditem}}>{{item}} </option>
+    {{/each}}
+</select> {{selecteditem}}
